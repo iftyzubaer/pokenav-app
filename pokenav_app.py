@@ -35,9 +35,9 @@ def main_menu():
         elif option == 6:
             zodiac_and_eeveelution()
         elif option == 7:
-            bmi_calculator()
+            calculate_bmi()
         elif option == 8:
-            fitness_tracker()
+            track_fitness()
         else:
             print("Error - Invalid option. Please input a number between 1 and 8.")
 
@@ -78,11 +78,11 @@ def zodiac_and_eeveelution():
     print("This is Task 6, Assigned to Ali")
 
 # ------------------- Task 7: BMI Calculator -------------------
-def bmi_calculator():
+def calculate_bmi():
     print("This is Task 7, Assigned to Salah")
 
 # ------------------- Task 8: Fitness and Health Tracker -------------------
-def fitness_tracker():
+def track_fitness():
     steps_input = input("Step count per day: ")
     steps_str = steps_input.split(",")
     steps = []
@@ -123,4 +123,5 @@ def fitness_tracker():
     print(f"Most active day: {days[most_index]}. Least active day: {days[least_index]}.")
 
 # ------------------- Run Program -------------------
-main_menu()
+if __name__ == "__main__":
+    main_menu()
