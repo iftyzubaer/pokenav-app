@@ -43,7 +43,32 @@ def main_menu():
 
 # ------------------- Task 2: Identify Hashtags -------------------
 def identify_hashtags():
-    print("This is Task 2, Assigned to Salah")
+    
+    post = input("Type your post: ")        
+    words = post.split(" ")                 
+
+    hashtags = []                           
+        
+    for word in words:
+
+        word = word.strip(".,!?;:")
+    
+        if len(word) > 1 and word[0] == "#":
+
+            word = word.lower()
+
+            if word not in hashtags:
+                hashtags.append(word)
+
+    if len(hashtags) == 0:
+        print("No hashtags found.")
+    elif len(hashtags) == 1:
+        print("Hashtag found:", hashtags[0])
+    else:
+        print("Hashtags found:")
+        for tag in hashtags:
+            print(tag)
+
 
 # ------------------- Task 3: Detect a Palindrome -------------------
 def detect_palindrome():
@@ -71,15 +96,51 @@ def create_acronym():
 
 # ------------------- Task 5: Get Pokemon Traits -------------------
 def get_pokemon_traits():
-    print("This is Task 5, Assigned to Salah")
-
+    pokemon_name = input("Type your Pokemon name: ")
+    pokemon_trait = input("Type your Pokemon trait: ")
+    pokemon_trait = pokemon_trait.lower()
+    pokemon_name = pokemon_name.upper()
+    valid_traits = ["water", "fire", "grass"]
+    if pokemon_trait not in valid_traits:
+        pokemon_trait = None    
+        print("Error - The Pokemon type provided is not valid. Valid types: Water, Fire, Grass.")
+        return  
+    if pokemon_trait == "water":
+        print(f'{pokemon_name.upper} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemon and weak against Grass-type Pokemons.')
+    elif pokemon_trait == "fire":
+        print(f"{pokemon_name.upper} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemon and weak against Water -type Pokemons.")
+    elif pokemon_trait == "grass":
+        print(f"{pokemon_name.title()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemon and weak against Fire-type Pokemons.")
+        
 # ------------------- Task 6: Zodiac Sign and Eeveelution -------------------
 def zodiac_and_eeveelution():
     print("This is Task 6, Assigned to Ali")
 
 # ------------------- Task 7: BMI Calculator -------------------
 def calculate_bmi():
-    print("This is Task 7, Assigned to Salah")
+    pokemon_height = float(input("Enter your height in meters: "))
+    pokemon_weight = float(input("Enter your weight in kilograms: "))
+
+    if pokemon_weight <= 0 and pokemon_height <= 0:
+        print("Error - Height and weight must be positive number.")
+        return
+    elif pokemon_weight <= 0:
+        print("Error - Weight must be positive a number.")
+        return
+    elif pokemon_height <= 0:
+        print("Error - Height must be positive number.")
+        return   
+    
+    else:
+        bmi = pokemon_weight / (pokemon_height ** 2)
+    if bmi < 29:
+        print(f"BMI = {bmi:.2f}. The Pokemon is underweight.")
+    elif 29 <= bmi < 53:
+        print(f"BMI = {bmi:.2f}. The Pokemon is normal weight.")
+    elif 53 <= bmi < 85:
+        print(f"BMI = {bmi:.2f}. The Pokemon is overweight.")
+    else:
+        print(f"BMI = {bmi:.2f}. The Pokemon is obese.")
 
 # ------------------- Task 8: Fitness and Health Tracker -------------------
 def track_fitness():
