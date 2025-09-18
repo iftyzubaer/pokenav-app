@@ -1,6 +1,6 @@
 import math
 
-# ------------------- Task 1: Main Menu -------------------
+# ------------------- Task 1: Main Menu by Ifty Zubaer -------------------
 def main_menu():
     option = 0
     while option != 1:
@@ -41,7 +41,7 @@ def main_menu():
         else:
             print("Error - Invalid option. Please input a number between 1 and 8.")
 
-# ------------------- Task 2: Identify Hashtags -------------------
+# ------------------- Task 2: Identify Hashtags by Salah Abdullah -------------------
 def identify_hashtags():
     
     post = input("Type your post: ")        
@@ -51,30 +51,29 @@ def identify_hashtags():
         
     for word in words:
 
-        word = word.strip(".,!?;:")
+        word = word.strip(".,!?;:") # Remove this line – punctuation must stay with the word (see example 2)
     
         if len(word) > 1 and word[0] == "#":
 
-            word = word.lower()
+            word = word.lower() # Remove this line – hashtags should keep their original case
 
             if word not in hashtags:
                 hashtags.append(word)
 
     if len(hashtags) == 0:
         print("No hashtags found.")
-    elif len(hashtags) == 1:
+    elif len(hashtags) == 1: # Remove this elif – always use "Hashtags found:" even if only one hashtag
         print("Hashtag found:", hashtags[0])
     else:
         print("Hashtags found:")
         for tag in hashtags:
             print(tag)
 
-
-# ------------------- Task 3: Detect a Palindrome -------------------
+# ------------------- Task 3: Detect a Palindrome by Ali Hamza -------------------
 def detect_palindrome():
     print("This is Task 3, Assigned to Ali")
 
-# ------------------- Task 4: Create an Acronym -------------------
+# ------------------- Task 4: Create an Acronym by Ifty Zubaer -------------------
 def create_acronym():
     name = input("Type your Pokemon name: ")
     factor_input = input("Type your shortening factor: ")
@@ -94,29 +93,34 @@ def create_acronym():
 
     print("Abbreviated name:", acronym)
 
-# ------------------- Task 5: Get Pokemon Traits -------------------
+# ------------------- Task 5: Get Pokemon Traits by Salah Abdullah -------------------
 def get_pokemon_traits():
     pokemon_name = input("Type your Pokemon name: ")
     pokemon_trait = input("Type your Pokemon trait: ")
     pokemon_trait = pokemon_trait.lower()
-    pokemon_name = pokemon_name.upper()
+    pokemon_name = pokemon_name.upper() # Remove this – we should not force names to uppercase globally
     valid_traits = ["water", "fire", "grass"]
     if pokemon_trait not in valid_traits:
-        pokemon_trait = None    
+        pokemon_trait = None # Remove this – unnecessary, since you already return after printing error
         print("Error - The Pokemon type provided is not valid. Valid types: Water, Fire, Grass.")
         return  
     if pokemon_trait == "water":
+        # pokemon_name.upper is a method, needs () → pokemon_name.upper()
+        # Also: keep formatting consistent with Fire/Grass cases
         print(f'{pokemon_name.upper} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemon and weak against Grass-type Pokemons.')
     elif pokemon_trait == "fire":
+        # pokemon_name.upper is wrong (missing ())
+        # Extra space in "Water -type"
         print(f"{pokemon_name.upper} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemon and weak against Water -type Pokemons.")
     elif pokemon_trait == "grass":
+        # Inconsistent formatting: uses pokemon_name.title() instead of same style as others
         print(f"{pokemon_name.title()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemon and weak against Fire-type Pokemons.")
         
-# ------------------- Task 6: Zodiac Sign and Eeveelution -------------------
+# ------------------- Task 6: Zodiac Sign and Eeveelution by Ali Hamza -------------------
 def zodiac_and_eeveelution():
     print("This is Task 6, Assigned to Ali")
 
-# ------------------- Task 7: BMI Calculator -------------------
+# ------------------- Task 7: BMI Calculator by Salah Abdullah -------------------
 def calculate_bmi():
     pokemon_height = float(input("Enter your height in meters: "))
     pokemon_weight = float(input("Enter your weight in kilograms: "))
@@ -142,7 +146,7 @@ def calculate_bmi():
     else:
         print(f"BMI = {bmi:.2f}. The Pokemon is obese.")
 
-# ------------------- Task 8: Fitness and Health Tracker -------------------
+# ------------------- Task 8: Fitness and Health Tracker by Ifty Zubaer -------------------
 def track_fitness():
     steps_input = input("Step count per day: ")
     steps_str = steps_input.split(",")
