@@ -136,7 +136,7 @@ def calculate_bmi():
         print("Error - Weight must be positive a number.")
         return
     elif pokemon_height <= 0:
-        # ⚠️ Same: "must be positive number." → should be "must be a positive number."
+        # Same: "must be positive number." → should be "must be a positive number."
         print("Error - Height must be positive number.")
         return   
     
