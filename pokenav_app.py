@@ -96,11 +96,11 @@ def get_pokemon_traits():
         print("Error - The Pokemon type provided is not valid. Valid types: Water, Fire, Grass.")
         return  
     if pokemon_trait == "water":
-        print(f'{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemon and weak against Grass-type Pokemons.')
+        print(f'{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemons and weak against Grass-type Pokemons.')
     elif pokemon_trait == "fire":
-        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemon and weak against Water-type Pokemons.")
+        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemons and weak against Water-type Pokemons.")
     elif pokemon_trait == "grass":
-        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemon and weak against Fire-type Pokemons.")
+        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemons and weak against Fire-type Pokemons.")
         
 # ------------------- Task 6: Zodiac Sign and Eeveelution by Ali Hamza -------------------
 def zodiac_and_eeveelution():
@@ -116,13 +116,13 @@ def calculate_bmi():
         return
 
     if pokemon_weight <= 0 and pokemon_height <= 0:
-        print("Error - Height and weight should be a positive numbers.")
+        print("Error - Height and weight must be positive numbers.")
         return
     elif pokemon_weight <= 0:
-        print("Error - Weight should be a positive number.")
+        print("Error - Weight must be a positive number.")
         return
     elif pokemon_height <= 0:
-        print("Error - Height should be a positive number.")
+        print("Error - Height must be a positive number.")
         return   
     
     else:
@@ -145,6 +145,10 @@ def track_fitness():
     steps_input = input("Step count per day: ")
     steps_str = steps_input.split(",")
     steps = []
+    
+    if steps_input.strip() == "":
+        print("Error - Invalid input. The program needs 7 numbers; you typed 0 numbers.")
+        return
 
     for s in steps_str:
         s = s.strip()
