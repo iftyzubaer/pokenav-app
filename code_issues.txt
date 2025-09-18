@@ -1,0 +1,19 @@
+WARNING - File: pokenav_app.py
+For readability sake, lines should be shorter than 120 characters, ideally, less than 80 characters.
+
+Line 99 >         print(f'{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemon and weak against Grass-type Pokemons.')
+----------------------------------
+WARNING - File: pokenav_app.py
+For readability sake, lines should be shorter than 120 characters, ideally, less than 80 characters.
+
+Line 101 >         print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemon and weak against Water-type Pokemons.")
+----------------------------------
+WARNING - File: pokenav_app.py
+For readability sake, lines should be shorter than 120 characters, ideally, less than 80 characters.
+
+Line 103 >         print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemon and weak against Fire-type Pokemons.")
+----------------------------------
+WARNING - File: pokenav_app.py
+An `except` block that does nothing (`pass`) or is empty should be avoided. This practice hides errors, making your program difficult to debug. At a minimum, log the error or print it so you know something went wrong.
+
+Line 114 >     except ValueError:
