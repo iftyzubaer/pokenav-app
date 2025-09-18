@@ -122,25 +122,34 @@ def zodiac_and_eeveelution():
 
 # ------------------- Task 7: BMI Calculator by Salah Abdullah -------------------
 def calculate_bmi():
+    # Potential error if user types letters (e.g., "abc") → program will crash.
+    # Suggestion: Wrap in try/except or validate input before float conversion.
     pokemon_height = float(input("Enter your height in meters: "))
     pokemon_weight = float(input("Enter your weight in kilograms: "))
 
+    # Message wording: should be "positive numbers" (plural) to match assignment style.
     if pokemon_weight <= 0 and pokemon_height <= 0:
         print("Error - Height and weight must be positive number.")
         return
     elif pokemon_weight <= 0:
+        # Typo: "must be positive a number." → should be "must be a positive number."
         print("Error - Weight must be positive a number.")
         return
     elif pokemon_height <= 0:
+        # ⚠️ Same: "must be positive number." → should be "must be a positive number."
         print("Error - Height must be positive number.")
         return   
     
     else:
         bmi = pokemon_weight / (pokemon_height ** 2)
+
+    # Indentation: This if/elif/else should be inside the `else:` block for clarity.
+    # Right now, it still works, but looks messy.
     if bmi < 29:
+        # Assignment wording: categories should be "underweight, healthy, overweight, obese".
         print(f"BMI = {bmi:.2f}. The Pokemon is underweight.")
     elif 29 <= bmi < 53:
-        print(f"BMI = {bmi:.2f}. The Pokemon is normal weight.")
+        print(f"BMI = {bmi:.2f}. The Pokemon is normal weight.")    # Should say "healthy"
     elif 53 <= bmi < 85:
         print(f"BMI = {bmi:.2f}. The Pokemon is overweight.")
     else:
