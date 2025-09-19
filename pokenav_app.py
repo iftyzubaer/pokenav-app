@@ -96,11 +96,20 @@ def get_pokemon_traits():
         print("Error - The Pokemon type provided is not valid. Valid types: Water, Fire, Grass.")
         return  
     if pokemon_trait == "water":
-        print(f'{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Fire-type Pokemons and weak against Grass-type Pokemons.')
+        print(
+            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            "It is strong against Fire-type Pokemons and weak against Grass-type Pokemons."
+        )
     elif pokemon_trait == "fire":
-        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Grass-type Pokemons and weak against Water-type Pokemons.")
+        print(
+            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            "It is strong against Grass-type Pokemons and weak against Water-type Pokemons."
+        )
     elif pokemon_trait == "grass":
-        print(f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon! It is strong against Water-type Pokemons and weak against Fire-type Pokemons.")
+        print(
+            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            "It is strong against Water-type Pokemons and weak against Fire-type Pokemons."
+        )
         
 # ------------------- Task 6: Zodiac Sign and Eeveelution by Ali Hamza -------------------
 def zodiac_and_eeveelution():
