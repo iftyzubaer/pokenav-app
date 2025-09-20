@@ -63,7 +63,19 @@ def identify_hashtags():
 
 # ------------------- Task 3: Detect a Palindrome by Ali Hamza -------------------
 def detect_palindrome():
-    print("This is Task 3, Assigned to Ali")
+    name = input("Type your Pokemon name: ")
+    lower_name = name.lower()
+    length = len(lower_name)
+    is_palindrome = True
+
+    for i in range(length // 2):
+        if lower_name[i] != lower_name[length - 1 - i]:
+            is_palindrome = False
+
+    if is_palindrome:
+        print(f"The name '{name}' is a palindrome.")
+    else:
+        print(f"The name '{name}' is not a palindrome.")
 
 # ------------------- Task 4: Create an Acronym by Ifty Zubaer -------------------
 def create_acronym():
@@ -113,7 +125,39 @@ def get_pokemon_traits():
         
 # ------------------- Task 6: Zodiac Sign and Eeveelution by Ali Hamza -------------------
 def zodiac_and_eeveelution():
-    print("This is Task 6, Assigned to Ali")
+    month_input = input("Type your birth month: ")
+
+    if not month_input.isdigit():
+        print("Error - The month index provided is not valid. Choose between 1 and 12.")
+        return
+
+    month = int(month_input)
+
+    if month < 1 or month > 12:
+        print("Error - The month index provided is not valid. Choose between 1 and 12.")
+        return
+
+    zodiacs = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini",
+               "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"]
+
+    zodiac_sign = zodiacs[month - 1]
+
+    if zodiac_sign in ["Cancer", "Scorpio", "Pisces"]:
+        element = "Water"
+        eevee = "Vaporeon"
+    elif zodiac_sign in ["Aries", "Leo", "Sagittarius"]:
+        element = "Fire"
+        eevee = "Flareon"
+    elif zodiac_sign in ["Taurus", "Virgo", "Capricorn"]:
+        element = "Earth"
+        eevee = "Leafeon"
+    else:
+        element = "Air"
+        eevee = "Jolteon"
+
+    print(f"Zodiac sign: {zodiac_sign}")
+    print(f"Element: {element}")
+    print(f"Eeveelution: {eevee}")
 
 # ------------------- Task 7: BMI Calculator by Salah Abdullah -------------------
 def calculate_bmi():

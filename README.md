@@ -18,7 +18,7 @@ Task Division
 - Task 7: **Salah** implemented the BMI calculator (average and categorization).  
 - Task 8: **Ifty** implemented the fitness and health tracker (average and standard deviation).  
 - Task 9: Each member implemented the error handling for their own tasks.  
-- Code Review / Project Review: **Ifty** also acted as the reviewer for the project.
+- Code Review / Project Review: **Ifty** also acted as the reviewer for the project. This also included helping group members debug and improve their tasks when needed, to ensure that the entire project was consistent and working correctly.
 
 ---
 
