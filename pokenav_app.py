@@ -161,19 +161,16 @@ def zodiac_and_eeveelution():
 
 # ------------------- Task 7: BMI Calculator by Salah Abdullah -------------------
 def calculate_bmi():
-    try:
-        pokemon_height = float(input("Enter your height in meters: "))
-        pokemon_weight = float(input("Enter your weight in kilograms: "))
-    except ValueError:
-        print("Error - Height and weight must be numbers.")
-        return
-
+    pokemon_height = float(input("Enter your height in meters: "))
+    pokemon_weight = float(input("Enter your weight in kilograms: "))
+     
     if pokemon_weight <= 0 and pokemon_height <= 0:
-        print("Error - Height and weight must be positive numbers.")
-        return
+        print("Error - Height and weight must be numbers.")
+    
     elif pokemon_weight <= 0:
         print("Error - Weight must be a positive number.")
         return
+    
     elif pokemon_height <= 0:
         print("Error - Height must be a positive number.")
         return   
@@ -192,7 +189,7 @@ def calculate_bmi():
         
         else:
             print(f"BMI = {bmi:.2f}. The Pokemon is obese.")
-
+            
 # ------------------- Task 8: Fitness and Health Tracker by Ifty Zubaer -------------------
 def track_fitness():
     steps_input = input("Step count per day: ")
