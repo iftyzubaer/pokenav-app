@@ -1,4 +1,0 @@
-WARNING - File: pokenav_app.py
-An `except` block that does nothing (`pass`) or is empty should be avoided. This practice hides errors, making your program difficult to debug. At a minimum, log the error or print it so you know something went wrong.
-
-Line 123 >     except ValueError:
