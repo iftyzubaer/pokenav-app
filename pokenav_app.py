@@ -192,49 +192,68 @@ def calculate_bmi():
             print(f"BMI = {bmi:.2f}. The Pokemon is obese.")
             
 # ------------------- Task 8: Fitness and Health Tracker by Ifty Zubaer -------------------
-def track_fitness():
+def get_steps():
     steps_input = input("Step count per day: ")
-    steps_str = steps_input.split(",")
-    steps = []
-    
     if steps_input.strip() == "":
         print("Error - Invalid input. The program needs 7 numbers; you typed 0 numbers.")
-        return
+        return None
+
+    steps_str = steps_input.split(",")
+    steps = []
 
     for s in steps_str:
         s = s.strip()
         if not s.isdigit():
             print("Error - Invalid input. Steps must be integers.")
-            return
+            return None
         steps.append(int(s))
 
     if len(steps) != 7:
         print(f"Error - Invalid input. The program needs 7 numbers; you typed {len(steps)} numbers.")
-        return
+        return None
 
+    return steps
+
+
+def calculate_average(steps):
     total = 0
     for value in steps:
         total += value
-    avg = total / 7
+    return total / len(steps)
 
+
+def calculate_std_dev(steps, avg):
     variance_sum = 0
     for value in steps:
         variance_sum += (value - avg) ** 2
-    variance = variance_sum / 7
-    std_dev = math.sqrt(variance)
+    variance = variance_sum / len(steps)
+    return math.sqrt(variance)
 
-    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
+def find_most_least_days(steps, days):
     most_index = 0
     least_index = 0
-    for i in range(7):
+    for i in range(len(steps)):
         if steps[i] >= steps[most_index]:
             most_index = i
         if steps[i] <= steps[least_index]:
             least_index = i
+    return days[most_index], days[least_index]
+
+
+def track_fitness():
+    steps = get_steps()
+    if steps is None:
+        return
+
+    avg = calculate_average(steps)
+    std_dev = calculate_std_dev(steps, avg)
+
+    days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    most_day, least_day = find_most_least_days(steps, days)
 
     print(f"Steps Statistics: {avg:.2f} + / - {std_dev:.2f} per day.")
-    print(f"Most active day: {days[most_index]}. Least active day: {days[least_index]}.")
+    print(f"Most active day: {most_day}. Least active day: {least_day}.")
 
 # ------------------- Run Program -------------------
 if __name__ == "__main__":
