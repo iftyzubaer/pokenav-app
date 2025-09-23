@@ -100,7 +100,7 @@ def create_acronym():
 # ------------------- Task 5: Get Pokemon Traits by Salah Abdullah -------------------
 def get_pokemon_traits():
     pokemon_name = input("Type your Pokemon name: ")
-    pokemon_trait = input("Type your Pokemon trait: ")
+    pokemon_trait = input("Type your Pokemon type: ")
     pokemon_trait = pokemon_trait.lower()
     valid_traits = ["water", "fire", "grass"]
 
@@ -109,17 +109,17 @@ def get_pokemon_traits():
         return  
     if pokemon_trait == "water":
         print(
-            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
             "It is strong against Fire-type Pokemons and weak against Grass-type Pokemons."
         )
     elif pokemon_trait == "fire":
         print(
-            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
             "It is strong against Grass-type Pokemons and weak against Water-type Pokemons."
         )
     elif pokemon_trait == "grass":
         print(
-            f"{pokemon_name.upper()} is a {pokemon_trait}-type pokemon!"
+            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
             "It is strong against Water-type Pokemons and weak against Fire-type Pokemons."
         )
         
@@ -161,8 +161,8 @@ def zodiac_and_eeveelution():
 
 # ------------------- Task 7: BMI Calculator by Salah Abdullah -------------------
 def calculate_bmi():
-    pokemon_height = float(input("Enter your height in meters: "))
-    pokemon_weight = float(input("Enter your weight in kilograms: "))
+    pokemon_height = float(input("Type your Pokemon's height in meters: "))
+    pokemon_weight = float(input("Type your Pokemon's weight in kilograms: "))
 
     if pokemon_weight <= 0 and pokemon_height <= 0:
         print("Error - Height and weight must be positive numbers.")
