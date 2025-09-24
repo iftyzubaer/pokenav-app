@@ -50,7 +50,7 @@ def identify_hashtags():
     hashtags = []                           
         
     for word in words:
-        if len(word) > 1 and word[0] == "#":
+        if len(word) > 1 and word[0] == "#" and "#" not in word[1:]:
             if word not in hashtags:
                 hashtags.append(word)
 
