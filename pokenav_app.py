@@ -51,7 +51,7 @@ def identify_hashtags():
     hashtags = []                           
         
     for word in words:
-        if len(word) > 1 and word[0] == "#" and "#":
+        if len(word) > 1 and word[0] == "#":
             extra_hash = False
 
             for char in range(1, len(word)):
