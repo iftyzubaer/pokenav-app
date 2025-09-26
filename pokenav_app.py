@@ -1,7 +1,7 @@
 import math
 
 # ------------------- Task 1: Main Menu by Ifty Zubaer -------------------
-def main_menu():
+def main():
     option = 0
     while option != 1:
         print("\nWelcome to the Main Menu. Choose one of the options below:")
@@ -22,24 +22,25 @@ def main_menu():
 
         option = int(option_input)
 
-        if option == 1:
-            print("Thank you for playing! See you next time!")
-        elif option == 2:
-            identify_hashtags()
-        elif option == 3:
-            detect_palindrome()
-        elif option == 4:
-            create_acronym()
-        elif option == 5:
-            get_pokemon_traits()
-        elif option == 6:
-            zodiac_and_eeveelution()
-        elif option == 7:
-            calculate_bmi()
-        elif option == 8:
-            track_fitness()
-        else:
-            print("Error - Invalid option. Please input a number between 1 and 8.")
+        match option:
+            case 1:
+                print("Thank you for playing! See you next time!")
+            case 2:
+                identify_hashtags()
+            case 3:
+                detect_palindrome()
+            case 4:
+                create_acronym()
+            case 5:
+                get_pokemon_traits()
+            case 6:
+                zodiac_and_eeveelution()
+            case 7:
+                calculate_bmi()
+            case 8:
+                track_fitness()
+            case _:
+                print("Error - Invalid option. Please input a number between 1 and 8.")
 
 # ------------------- Task 2: Identify Hashtags by Salah Abdullah -------------------
 def identify_hashtags():
@@ -50,8 +51,14 @@ def identify_hashtags():
     hashtags = []                           
         
     for word in words:
-        if len(word) > 1 and word[0] == "#" and "#" not in word[1:]:
-            if word not in hashtags:
+        if len(word) > 1 and word[0] == "#" and "#":
+            extra_hash = False
+
+            for char in range(1, len(word)):
+                if word[char] == "#":
+                    extra_hash = True
+
+            if word not in hashtags and not extra_hash:
                 hashtags.append(word)
 
     if len(hashtags) == 0:
@@ -89,11 +96,10 @@ def create_acronym():
     factor = int(factor_input)
 
     acronym = ""
-    index = factor - 1
 
-    while index < len(name):
-        acronym += name[index].upper()
-        index += factor
+    for i in range(len(name)):
+        if i % factor == factor - 1:
+            acronym += name[i].upper()
 
     print("Abbreviated name:", acronym)
 
@@ -109,17 +115,17 @@ def get_pokemon_traits():
         return  
     if pokemon_trait == "water":
         print(
-            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
+            f"{pokemon_name.title()} is a {pokemon_trait.title()}-type Pokemon!"
             "It is strong against Fire-type Pokemons and weak against Grass-type Pokemons."
         )
     elif pokemon_trait == "fire":
         print(
-            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
+            f"{pokemon_name.title()} is a {pokemon_trait.title()}-type Pokemon!"
             "It is strong against Grass-type Pokemons and weak against Water-type Pokemons."
         )
     elif pokemon_trait == "grass":
         print(
-            f"{pokemon_name.capitalize()} is a {pokemon_trait.capitalize()}-type Pokemon!"
+            f"{pokemon_name.title()} is a {pokemon_trait.title()}-type Pokemon!"
             "It is strong against Water-type Pokemons and weak against Fire-type Pokemons."
         )
         
@@ -139,21 +145,13 @@ def zodiac_and_eeveelution():
 
     zodiacs = ["Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini",
                "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"]
+    element = ["Fire", "Earth", "Air", "Water"]
+    eevee = ["Flareon", "Leafeon", "Jolteon", "Vaporeon"]
 
     zodiac_sign = zodiacs[month - 1]
-
-    if zodiac_sign in ["Cancer", "Scorpio", "Pisces"]:
-        element = "Water"
-        eevee = "Vaporeon"
-    elif zodiac_sign in ["Aries", "Leo", "Sagittarius"]:
-        element = "Fire"
-        eevee = "Flareon"
-    elif zodiac_sign in ["Taurus", "Virgo", "Capricorn"]:
-        element = "Earth"
-        eevee = "Leafeon"
-    else:
-        element = "Air"
-        eevee = "Jolteon"
+    element_index = (month) % 4
+    element = element[element_index]
+    eevee = eevee[element_index]
 
     print(f"Zodiac sign: {zodiac_sign}")
     print(f"Element: {element}")
@@ -257,4 +255,4 @@ def track_fitness():
 
 # ------------------- Run Program -------------------
 if __name__ == "__main__":
-    main_menu()
+    main()
