@@ -49,7 +49,8 @@ def identify_hashtags():
     words = post.split(" ")                 
 
     hashtags = []                           
-        
+    
+    # check if word starts with '#' and has no extra '#' inside
     for word in words:
         if len(word) > 1 and word[0] == "#":
             extra_hash = False
@@ -75,6 +76,7 @@ def detect_palindrome():
     length = len(lower_name)
     is_palindrome = True
 
+    # compare characters from start and end moving toward the center
     for i in range(length // 2):
         if lower_name[i] != lower_name[length - 1 - i]:
             is_palindrome = False
@@ -97,6 +99,7 @@ def create_acronym():
 
     acronym = ""
 
+    # pick every 'factor'th character (e.g., factor = 2 => every 2nd letter)
     for i in range(len(name)):
         if i % factor == factor - 1:
             acronym += name[i].upper()
@@ -149,7 +152,7 @@ def zodiac_and_eeveelution():
     eevee = ["Flareon", "Leafeon", "Jolteon", "Vaporeon"]
 
     zodiac_sign = zodiacs[month - 1]
-    element_index = (month) % 4
+    element_index = (month) % 4         # cycle through elements/Eeveelutions using modulus
     element = element[element_index]
     eevee = eevee[element_index]
 
@@ -224,8 +227,8 @@ def calculate_std_dev(steps, avg):
     variance_sum = 0
     for value in steps:
         variance_sum += (value - avg) ** 2
-    variance = variance_sum / len(steps)
-    return math.sqrt(variance)
+    variance = variance_sum / len(steps)    # calculate variance (average of squared differences from mean)
+    return math.sqrt(variance)              # standard deviation = square root of variance
 
 
 def find_most_least_days(steps, days):
